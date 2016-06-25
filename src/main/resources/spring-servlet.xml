@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--1.启动springMVC注解功能 -->
+	<mvc:annotation-driven enable-matrix-variables="true">
+		<mvc:message-converters register-defaults="false">
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper" >
+					    <property name="serializationInclusion">
+					        <value type="com.fasterxml.jackson.annotation.JsonInclude$Include">NON_NULL</value>
+					    </property>
+					</bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!--2.自动扫描包 -->
+	<context:component-scan base-package="com.ailk.sets.*" />
+	<!--3.配置视图解析器ViewResolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/page/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<mvc:interceptors>
+
+		<!-- <mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/error" />
+			<mvc:exclude-mapping path="/page/index*" />
+			<mvc:exclude-mapping path="/page/login*" />
+			<mvc:exclude-mapping path="/page/regist" />
+			<mvc:exclude-mapping path="/page/freeTest" />
+			<mvc:exclude-mapping path="/login/*" />
+			<mvc:exclude-mapping path="/wx/**" />
+			<bean class="com.ailk.sets.interceptor.SessionInterceptor" />
+		</mvc:interceptor> -->
+		<mvc:interceptor>
+			<mvc:mapping path="/wx/**" />
+			<mvc:exclude-mapping path="/wx/login/**" />
+			<mvc:exclude-mapping path="/wx/wxLoginByMenu**" />
+			<mvc:exclude-mapping path="/wx/wxLogin/**" />
+			<mvc:exclude-mapping path="/wx/clearSession/**" />
+			<mvc:exclude-mapping path="/wx/appHelperDownload/**" />
+			<mvc:exclude-mapping path="/wx/appHelperDownloadRedirect**" />
+			<bean class="com.ailk.sets.interceptor.SchoolSessionInterceptor" />
+		</mvc:interceptor>
+		<!-- <mvc:interceptor>
+			<mvc:mapping path="/page/index*" />
+			<bean class="com.ailk.sets.interceptor.LoginInterceptor" />
+		</mvc:interceptor> -->
+		<mvc:interceptor>
+			<mvc:mapping path="/wx/wxLogin/**" />
+			<bean class="com.ailk.sets.interceptor.SchoolLoginInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="com.ailk.sets.interceptor.LogInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+</beans>  

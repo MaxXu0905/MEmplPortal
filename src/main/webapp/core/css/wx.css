@@ -1,0 +1,244 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body,ul,li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: ubuntu, helvetica, arial;
+	background: #FFF;
+	color: #535353;
+}
+
+/** 鍩烘湰鎸夐挳 */
+.btn {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.428571429;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.btn:hover,.btn:focus {
+	color: #333333;
+	text-decoration: none;
+}
+
+.btn.disabled,.btn[disabled] {
+	pointer-events: none;
+	cursor: not-allowed;
+	opacity: 0.65;
+	filter: alpha(opacity =     65);
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.btn-default {
+	color: #333333;
+	background-color: #ffffff;
+	border-color: #cccccc;
+}
+
+.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active
+	{
+	color: #333333;
+	background-color: #ebebeb;
+	border-color: #adadad;
+}
+
+.btn-default:active,.btn-default.active {
+	background-image: none;
+}
+
+.btn-default.disabled,.btn-default[disabled],.btn-default.disabled:hover,.btn-default[disabled]:hover,.btn-default.disabled:focus,.btn-default[disabled]:focus,.btn-default.disabled:active,.btn-default[disabled]:active,.btn-default.disabled.active,.btn-default[disabled].active
+	{
+	background-color: #ffffff;
+	border-color: #cccccc;
+}
+
+.btn-info {
+	color: #ffffff;
+	background-color: #00A8FF;
+	border-color: #00A8FF;
+}
+
+.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active {
+	color: #ffffff;
+	background-color: #0092dd;
+	border-color: #439ED9;
+}
+
+.btn-info:active,.btn-info.active {
+	background-image: none;
+}
+
+.btn-info.disabled,.btn-info[disabled],.btn-info.disabled:hover,.btn-info[disabled]:hover,.btn-info.disabled:focus,.btn-info[disabled]:focus,.btn-info.disabled:active,.btn-info[disabled]:active,.btn-info.disabled.active,.btn-info[disabled].active
+	{
+	background-color: #00A8FF;
+	border-color: #00A8FF;
+}
+
+/** 绾浘褰㈡寜閽�*/
+.img-btn {
+	border: 1px solid transparent;
+	display: inline-block;
+	border-radius: 4px;
+	padding: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	text-align: center;
+	cursor: pointer;
+	-webkit-user-select: none;
+}
+
+/** action-bar */
+.action-bar {
+	bottom: -2px;
+	position: absolute;
+	width: 100%;
+	height: 54px;
+	background: rgb(0, 168, 255);
+	width: 100%;
+	position: absolute;
+	z-index: 99;
+}
+
+.action-bar>.btn {
+	color: #FFF;
+	padding: 0 20px;
+	position: absolute;
+	height: 48px;
+	line-height: 48px;
+}
+
+.action-bar>.img-btn {
+	position: absolute;
+	padding: 0;
+	width: 48px;
+	height: 48px;
+	border-radius: 0;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 48px;
+}
+
+.action-bar>.img-btn>img {
+	width: 48px;
+	height: 48px;
+}
+.action-bar>.img-btn:hover,.action-bar>.img-btn:focus {
+	background-color: #0092dd;
+}
+
+.nav-l1 {
+	left: 0
+}
+
+.nav-r1 {
+	right: 0
+}
+
+.nav-r2 {
+	right: 48px;
+}
+.nav-r3 {
+	right: 96px;
+}
+
+/***/
+.list-view {
+	
+}
+
+.list-view-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	background-color: #ffffff;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #dddddd;
+}
+
+.list-view-item:first-child {
+	margin-top: -1px;
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.container:before,.container:after {
+	display: table;
+	content: " ";
+}
+
+.container:after {
+	clear: both;
+}
+
+.container:before,.container:after {
+	display: table;
+	content: " ";
+}
+
+.container:after {
+	clear: both;
+}
+
+/** 鍔ㄧ敾 **/
+/* move from / to  */
+.pt-page-moveToBottom {
+	-webkit-animation: moveToBottom .6s ease both;
+	-moz-animation: moveToBottom .6s ease both;
+	animation: moveToBottom .6s ease both;
+}
+
+.pt-page-moveFromBottom {
+	-webkit-animation: moveFromBottom .6s ease both;
+	-moz-animation: moveFromBottom .6s ease both;
+	animation: moveFromBottom .6s ease both;
+}
+/***** keyframes *******/
+@-webkit-keyframes moveToBottom {
+	to { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes moveToBottom {
+	to { -moz-transform: translateY(100%); }
+}
+@keyframes moveToBottom {
+	to { transform: translateY(100%); }
+}
+
+@-webkit-keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); }
+}
+@-moz-keyframes moveFromBottom {
+	from { -moz-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+	from { transform: translateY(100%); }
+}
